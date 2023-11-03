@@ -25,11 +25,24 @@ public class PDA
     public void runEventLoop() {
         Scanner scanner = new Scanner(System.in);
         int age;
-        while (true) {
-            System.out.println("How old are you?");
+        int LOWER_BOUND = 14;
+        boolean shouldContinue = true;
+        while (shouldContinue) {
+            System.out.println("How old are you?(typing 0 turns program off)");
             try {
                 age = scanner.nextInt();
-                System.out.println(age);
+                int LOWEST_AGE = age / 2 + 7;
+                int HIGHEST_AGE = (age - 7) * 2;
+                if (age == 0) {
+                    shouldContinue = false;
+                    System.out.println("Bye!");
+                }
+                else if (age < LOWER_BOUND) {
+                    System.out.println(age + " is too young!!");
+                } else {
+                    System.out.println(LOWEST_AGE + " is the lowest age you can date");
+                    System.out.println(HIGHEST_AGE + " is the highest age you can date");
+                }
             } catch (InputMismatchException error) {
                 scanner.next();
                 System.out.println("Please enter an integer");
