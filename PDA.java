@@ -27,6 +27,7 @@ public class PDA
         int age;
         int LOWER_BOUND = 14;
         boolean shouldContinue = true;
+        double NOT_WHOLE = 0.5;
         while (shouldContinue) {
             System.out.println("How old are you?(typing 0 turns program off)");
             try {
@@ -39,6 +40,9 @@ public class PDA
                 }
                 else if (age < LOWER_BOUND) {
                     System.out.println(age + " is too young!!");
+                } else if (age % 2 != 0) {
+                    System.out.println(LOWEST_AGE + 1 + " is the lowest age you can date");
+                    System.out.println(HIGHEST_AGE + " is the highest age you can date");
                 } else {
                     System.out.println(LOWEST_AGE + " is the lowest age you can date");
                     System.out.println(HIGHEST_AGE + " is the highest age you can date");
